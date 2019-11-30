@@ -17,6 +17,8 @@ TagManager:
   - 1up
   - Mushroom
   - Glitch
+  - Coin
+  - BlackHole
   layers:
   - Default
   - TransparentFX
@@ -31,7 +33,7 @@ TagManager:
   - PlayerHelper
   - EnemyHelper
   - Enemy
-  - 
+  - BlackHole
   - 
   - 
   - 

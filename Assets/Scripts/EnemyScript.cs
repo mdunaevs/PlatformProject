@@ -63,10 +63,13 @@ public class EnemyScript : MonoBehaviour
    }
 
    void OnControllerColliderHit(ControllerColliderHit collision) {
+        if(!MarioManagerScript.S.playerIsHittable) return;
         //Debug.Log("Two characters collided");
         if(collision.gameObject.tag == "Enemy"){
               faceLeft = !faceLeft;
         } else if(collision.gameObject.tag == "BackWall"){
+              Destroy(this.gameObject);
+        } else if(collision.gameObject.tag == "BlackHole"){
               Destroy(this.gameObject);
         } else if(collision.gameObject.tag == "Player"){
               //Debug.Log("Collisiotn Normal: " + collision.normal);
@@ -78,9 +81,18 @@ public class EnemyScript : MonoBehaviour
 
               } else {
                   //Debug.Log("Kills the player");
-                  collision.gameObject.GetComponent<HeroScript>().SetPlayerDead(true);
-                  MarioManagerScript.S.RegisterDeath();
-                  MarioManagerScript.S.deathBeingRegistered = true;
+                  MarioManagerScript.S.hitsUntilDeath -= 1;
+                  if(MarioManagerScript.S.hitsUntilDeath == 2){
+                      MarioManagerScript.S.ShrinkGlitch();
+                      StartCoroutine(MarioManagerScript.S.HitDelay());
+                  } else if(MarioManagerScript.S.hitsUntilDeath == 1) {
+                      MarioManagerScript.S.Shrink();
+                      StartCoroutine(MarioManagerScript.S.HitDelay());
+                  } else if(MarioManagerScript.S.hitsUntilDeath == 0){
+                      collision.gameObject.GetComponent<HeroScript>().SetPlayerDead(true);
+                      MarioManagerScript.S.RegisterDeath();
+                      MarioManagerScript.S.deathBeingRegistered = true;
+                  }
               }
 
         }

@@ -28,6 +28,14 @@ public class MarioManagerScript : MonoBehaviour
     public bool deathBeingRegistered = false;
     public bool canGlitch = false;
 
+    public int hitsUntilDeath = 1;
+
+    public bool playerIsHittable = true;
+
+    public GameObject blackHolePrefab;
+
+    private GameObject bh;
+
     public static MarioManagerScript S; // Singleton
 
 
@@ -78,6 +86,7 @@ public class MarioManagerScript : MonoBehaviour
         ResetPlayerPosition();
         ResetCameraPosition();
         deathBeingRegistered = false;
+        hitsUntilDeath = 1;
         player.GetComponent<HeroScript>().SetPlayerDead(false);
 
         gameState = GameState.getReady;
@@ -89,7 +98,6 @@ public class MarioManagerScript : MonoBehaviour
     public IEnumerator BowserFace(float time){
         for(int i = 0; i < 1; i++){
             yield return new WaitForSeconds(time);
-
         }
 
         gameState = GameState.setup;
@@ -108,7 +116,9 @@ public class MarioManagerScript : MonoBehaviour
 
     public void RegisterDeath(){
         gameState = GameState.hit;
+
         if(deathBeingRegistered) return;
+        if(bh != null) Destroy(bh.gameObject);
         canGlitch = false;
         MakeDeathSound();
         amtLives -= 1;
@@ -126,20 +136,72 @@ public class MarioManagerScript : MonoBehaviour
         livesLeftMessage.text = "" + amtLives;
     }
 
-    public void Grow(){
-        Debug.Log("Mario is meant to grow now");
+    public IEnumerator HitDelay(){
+      playerIsHittable = false;
+      for(int i = 0; i < 6; i++){
+          player.transform.GetChild(0).gameObject.active = false;
+          yield return new WaitForSeconds(0.125f);
+          player.transform.GetChild(0).gameObject.active = true;
+          yield return new WaitForSeconds(0.125f);
+      }
+
+      playerIsHittable = true;
     }
 
+    // Growing from small mario to large mario
+    public void Grow(){
+        Debug.Log("Mario is meant to grow now");
+        player.gameObject.transform.localScale = new Vector3(1.0f, 3.0f, 1.0f);
+        player.GetComponent<CharacterController>().center = new Vector3(0.0f, 0.1f, 0.0f);
+    }
 
+    // Shrinking from large Mario to small mario
+    public void Shrink(){
+        Debug.Log("Mario is meant to shrink now");
+        player.gameObject.transform.localScale = new Vector3(1.0f, 2.0f, 1.0f);
+        player.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    // Shrinking from glitch mario to normal mario
+    public void ShrinkGlitch(){
+        Debug.Log("Mario is meant to shrink from glich to normal now");
+        canGlitch = false;
+        player.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    // Growing by getting glitch skin
     public void GlicthableSkin(){
         // TO-DO: Sprite skin of mario is glitch skin
-        return;
+        player.gameObject.transform.localScale = new Vector3(1.0f, 3.0f, 1.0f);
+        player.GetComponent<CharacterController>().center = new Vector3(0.0f, 0.1f, 0.0f);
+        player.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.green;
     }
 
     public void Glitchable(){
         Debug.Log("Mario is meant to glitch now");
         GlicthableSkin();
         canGlitch = true;
+    }
+
+    public void BlackHoleSkin(){
+        player.transform.Find("Mario_animation").gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
+    }
+
+    public void ShrinkBlackHole(){
+        player.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+
+    public void InitializeBlackHole(){
+        bh = Instantiate(blackHolePrefab, player.gameObject.transform);
+        Destroy(bh.gameObject, 10.0f);
+    }
+
+    public void BlackHole(){
+        Debug.Log("Mario should have a black hole now");
+        //BlackHoleSkin();
+        InitializeBlackHole();
+        //ShrinkBlackHole();
     }
 
     public void IncrementCoins(){
@@ -158,10 +220,10 @@ public class MarioManagerScript : MonoBehaviour
 
 /*
 
-Coin animation
+Coin animation - done
 powerups - animations + abilities
 revive enemies / blocks
-lucky blocks
-Pipe functionality
+lucky blocks - done
+Pipe functionality -
 
 */

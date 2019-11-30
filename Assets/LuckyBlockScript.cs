@@ -11,6 +11,8 @@ public class LuckyBlockScript : MonoBehaviour
     public GameObject lifePrefab;
     public GameObject mushroomPrefab;
     public GameObject glitchPrefab;
+    public GameObject blackHolePrefab;
+    public GameObject coinPrefab;
 
     public string powerUpType;
 
@@ -24,10 +26,6 @@ public class LuckyBlockScript : MonoBehaviour
     void Update()
     {
 
-    }
-
-    private void CoinAnimation(){
-        return ;
     }
 
 
@@ -61,6 +59,44 @@ public class LuckyBlockScript : MonoBehaviour
         glitch.transform.parent = null;
     }
 
+    void SpawnBlackHole(){
+        GameObject blackHole;
+        blackHole = Instantiate(blackHolePrefab,
+                             transform.position + new Vector3(0.0f, 2.0f, 0.0f),
+                             transform.rotation,
+                             transform);
+        blackHole.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        blackHole.transform.parent = null;
+    }
+
+    public void RemoveCoin(GameObject coin){
+        Debug.Log("Entering coroutine");
+
+        //yield WaitForSeconds(1.0f);
+        //coin.GetComponent<Animator>().SetBool("hitBlock", false);
+        //Destroy(this.gameObject)
+        Debug.Log("Exiting coroutine");
+        Destroy(coin.gameObject, 0.38f);
+
+    }
+
+    private void CoinAnimation(){
+        Debug.Log("Entered coin animation");
+        GameObject coin;
+        coin = Instantiate(coinPrefab,
+                          transform.position + new Vector3(0.0f, 0.0f, 2.0f),
+                          transform.rotation,
+                          transform);
+        coin.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        coin.transform.parent = null;
+
+        coin.GetComponent<Animator>().SetBool("hitBlock", true);
+
+        RemoveCoin(coin);
+        //Destroy(coin.gameObject);
+        //coin.gameObject.active = false;
+    }
+
     private void BlockHitAction(){
         // Change look of the block
         GameObject sprite = this.transform.GetChild(0).gameObject;
@@ -82,6 +118,8 @@ public class LuckyBlockScript : MonoBehaviour
             } else if(powerUpType == "Mushroom"){
                 SpawnMushroom();
             } else if(powerUpType == "Glitch"){
+                SpawnGlitch();
+            } else if(powerUpType == "BlackHole"){
                 SpawnGlitch();
             }
         }

@@ -16,6 +16,8 @@ public class HeroScript : MonoBehaviour
     private bool faceRight = true;
 
 
+
+
     private Vector3 moveDirection = Vector3.zero;
 
     public AudioClip playerJumpSound;
@@ -78,7 +80,7 @@ public class HeroScript : MonoBehaviour
              // Move the controller
              characterController.Move(moveDirection * Time.deltaTime);
 
-             if(MarioManagerScript.S.canGlitch && Input.GetKeyDown(KeyCode.Tab)){
+             if(MarioManagerScript.S.canGlitch && characterController.isGrounded && Input.GetKeyDown(KeyCode.Tab)){
                 GlitchMovement();
              }
           }
@@ -86,6 +88,7 @@ public class HeroScript : MonoBehaviour
 
       private void GlitchMovement(){
           Vector3 currPos = this.transform.position;
+
           float glitchAmt = -6.0f;
           if(faceRight){
               glitchAmt = 6.0f;
@@ -118,6 +121,7 @@ public class HeroScript : MonoBehaviour
 
           if(collision.gameObject.tag == "Plane"){
               MarioManagerScript.S.RegisterDeath();
+              MarioManagerScript.S.Shrink();
           } else if(collision.moveDirection == Vector3.up){
 
               if(collision.gameObject.tag == "Platform" && (moveDirection.y > 0.0f)){
@@ -135,9 +139,13 @@ public class HeroScript : MonoBehaviour
           } else if (collision.gameObject.tag == "1up") {
               collision.gameObject.GetComponent<LifeScript>().PowerUpAction();
           } else if (collision.gameObject.tag == "Mushroom") {
+              MarioManagerScript.S.hitsUntilDeath = 2;
               collision.gameObject.GetComponent<MushroomScript>().PowerUpAction();
           } else if (collision.gameObject.tag == "Glitch") {
+              MarioManagerScript.S.hitsUntilDeath = 3;
               collision.gameObject.GetComponent<GlitchScript>().PowerUpAction();
+          } else if (collision.gameObject.tag == "BlackHole") {
+              collision.gameObject.GetComponent<BlackHoleScript>().PowerUpAction();
           }
 
       }
