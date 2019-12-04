@@ -18,8 +18,6 @@ public class MarioManagerScript : MonoBehaviour
     public AudioClip playerDeathSound;
     private AudioSource audio;
 
-    public int level = 1;
-
     public int amtLives = 3;
     public int amtCoinsCollected = 0;
 
@@ -35,6 +33,12 @@ public class MarioManagerScript : MonoBehaviour
     public GameObject blackHolePrefab;
 
     private GameObject bh;
+
+    public bool insideSideRoom = false;
+
+    public int level = 1;
+
+    private bool isLoaded = false;
 
     public static MarioManagerScript S; // Singleton
 
@@ -60,6 +64,19 @@ public class MarioManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(level == 2){
+            player = player;
+            if(isLoaded){
+              Start();
+            }
+            isLoaded = false;
+        } else if(level == 3){
+            player = player;
+            if(isLoaded){
+              Start();
+            }
+            isLoaded = false;
+        }
     }
 
     public void ResetPlayerPosition(){
@@ -83,6 +100,16 @@ public class MarioManagerScript : MonoBehaviour
   }
 
     public void InitRound(){
+        if(player == null){
+            player = GameObject.FindGameObjectWithTag("Player");
+
+        }
+        if(cam == null){
+            cam = GameObject.FindGameObjectWithTag("MainCamera");
+        }
+        // if(livesLeftMessage == null){
+        //     livesLeftMessage = GameObject.FindGameObjectWithTag("Display");
+        // }
         ResetPlayerPosition();
         ResetCameraPosition();
         deathBeingRegistered = false;
@@ -112,6 +139,16 @@ public class MarioManagerScript : MonoBehaviour
         audio.Stop();
         audio.clip = playerDeathSound;
         audio.Play();
+    }
+
+    public void WarpPipeAnimation(){
+        Debug.Log("Should be doing some animation noe");
+    }
+
+    public void WarpPipeAction(Vector3 pos){
+        insideSideRoom = !insideSideRoom;
+        WarpPipeAnimation();
+        player.transform.position = pos;
     }
 
     public void RegisterDeath(){
@@ -216,6 +253,11 @@ public class MarioManagerScript : MonoBehaviour
     public void GoToWinScreen(){
         SceneManager.LoadScene("LoseScreen");
     }
+
+    public void GoToLevelOne(){
+        SceneManager.LoadScene("Level 1");
+        isLoaded = true;
+    }
 }
 
 /*
@@ -225,5 +267,6 @@ powerups - animations + abilities
 revive enemies / blocks
 lucky blocks - done
 Pipe functionality -
-
+Bowser player
+black hole animation of enemy getting sucked in
 */

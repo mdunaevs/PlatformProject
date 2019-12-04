@@ -21,8 +21,18 @@ public class FollowScript : MonoBehaviour
           Vector3 playerPosition = playerObject.transform.position;
           Vector3 cameraPosition = transform.position;
 
-          if(playerPosition.x > cameraPosition.x){
+          if(!MarioManagerScript.S.insideSideRoom && playerPosition.x > cameraPosition.x){
               cameraPosition.x = Mathf.SmoothDamp(cameraPosition.x, playerPosition.x, ref xVel, 0.5f);
+              transform.position = cameraPosition;
+          }
+          if((playerPosition.y < cameraPosition.y - 20.0f)){
+              cameraPosition.y = playerPosition.y - 20.0f;
+              cameraPosition.x = playerPosition.x + 20.0f;
+              transform.position = cameraPosition;
+          }
+          if((playerPosition.y > cameraPosition.y + 20.0f)){
+              cameraPosition.y = 3.0f;
+              cameraPosition.x = playerPosition.x + 15.0f;
               transform.position = cameraPosition;
           }
     }

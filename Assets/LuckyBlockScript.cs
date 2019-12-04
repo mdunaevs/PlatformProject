@@ -107,7 +107,7 @@ public class LuckyBlockScript : MonoBehaviour
     public void LuckyBlockHit(){
         Debug.Log("Player hit the lucky block");
         hitsUntilBreaks -= 1;
-        if(spawnCoin){
+        if(spawnCoin && hitsUntilBreaks >= 0){
             MarioManagerScript.S.IncrementCoins();
             CoinAnimation();
         }
@@ -120,7 +120,7 @@ public class LuckyBlockScript : MonoBehaviour
             } else if(powerUpType == "Glitch"){
                 SpawnGlitch();
             } else if(powerUpType == "BlackHole"){
-                SpawnGlitch();
+                SpawnBlackHole();
             }
         }
     }

@@ -113,13 +113,14 @@ public class BrickScript : MonoBehaviour
             GameObject sprite = this.transform.GetChild(0).gameObject;
             SpriteRenderer s = sprite.GetComponent<SpriteRenderer>();
             s.sprite = solidBlock;
+            s.enabled = true;
         }
     }
 
     public void BrickHit(){
         Debug.Log("Player hit the brick");
         hitsUntilBreaks -= 1;
-        if(spawnCoin){
+        if(spawnCoin && hitsUntilBreaks >= 0){
             MarioManagerScript.S.IncrementCoins();
             CoinAnimation();
         }

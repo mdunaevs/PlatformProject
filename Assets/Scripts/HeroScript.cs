@@ -118,7 +118,6 @@ public class HeroScript : MonoBehaviour
 
       void OnControllerColliderHit(ControllerColliderHit collision) {
           //Debug.Log("Two characters collided");
-
           if(collision.gameObject.tag == "Plane"){
               MarioManagerScript.S.RegisterDeath();
               MarioManagerScript.S.Shrink();
@@ -146,6 +145,22 @@ public class HeroScript : MonoBehaviour
               collision.gameObject.GetComponent<GlitchScript>().PowerUpAction();
           } else if (collision.gameObject.tag == "BlackHole") {
               collision.gameObject.GetComponent<BlackHoleScript>().PowerUpAction();
+          } else if(collision.gameObject.tag == "EnterPipe" &&
+                    characterController.isGrounded && Input.GetKeyDown(KeyCode.DownArrow)){
+              Debug.Log("Should enter pipe");
+              Vector3 newPos = collision.gameObject.GetComponent<TeleportScript>().TeleportTo(this.transform.position.x);
+              MarioManagerScript.S.WarpPipeAction(newPos);
+          } else if(collision.gameObject.tag == "ExitPipe" &&
+                    characterController.isGrounded && Input.GetKeyDown(KeyCode.RightArrow)){
+              Debug.Log("Should exit into pipe");
+              Vector3 newPos = collision.gameObject.GetComponent<TeleportScript>().TeleportOut();
+              MarioManagerScript.S.WarpPipeAction(newPos);
+          } else if(collision.gameObject.tag == "levelEnd"){
+              MarioManagerScript.S.level += 1;
+              if(MarioManagerScript.S.level == 2){
+                  MarioManagerScript.S.GoToLevelOne();
+              }
+
           }
 
       }
