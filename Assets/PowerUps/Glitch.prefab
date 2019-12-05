@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9075157879152750588}
   - component: {fileID: 9075157879152750589}
   - component: {fileID: 9075157879152750590}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Glitch
   m_TagString: Glitch
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9075157879152750591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad52ac9b86f724017abd76b470ee6f78, type: 3}
+  m_Script: {fileID: 11500000, guid: 4df9f01ef92ce492abaec18683ffd399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9075157879889883311

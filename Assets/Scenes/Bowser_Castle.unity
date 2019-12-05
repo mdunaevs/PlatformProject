@@ -4142,13 +4142,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 563442498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55432368d3c544998987417b36ea2629, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ff40601e82244b479a9231bc370f63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 0
   player: {fileID: 133805268}
   cam: {fileID: 534669902}
-  playerDeathSound: {fileID: 8300000, guid: b02a1f300efeefa4ab8f3a3c6ebf6e98, type: 3}
+  playerDeathSound: {fileID: 8300000, guid: b5e9bdd3eb0f347408eb081db5a31112, type: 3}
   amtLives: 3
   amtCoinsCollected: 0
   livesLeftMessage: {fileID: 2013990214}
@@ -6306,12 +6306,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 833683616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a02ee2ed5c5484a05a773d5117d0f7a9, type: 3}
+  m_Script: {fileID: 11500000, guid: a0aa057e57f5e4f41b32cdc4fa4dce43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 155
-  y: 0
+  x: 150
+  y: 10
   z: 0
+  camShouldMove: 1
 --- !u!65 &833683618
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6496,7 +6497,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 853186981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd7d36c3421754471a1a48430480dc3d, type: 3}
+  m_Script: {fileID: 11500000, guid: ff7b6c62762e040e493b94099ae6b62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &853186984
@@ -7021,12 +7022,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 957246528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a02ee2ed5c5484a05a773d5117d0f7a9, type: 3}
+  m_Script: {fileID: 11500000, guid: a0aa057e57f5e4f41b32cdc4fa4dce43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   x: 0
   y: 0
   z: 0
+  camShouldMove: 0
 --- !u!1001 &964917843
 PrefabInstance:
   m_ObjectHideFlags: 0

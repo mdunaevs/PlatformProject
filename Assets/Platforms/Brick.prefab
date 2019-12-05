@@ -181,7 +181,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5350208256291227502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb952be18d491485ba5509b87c92ec5d, type: 3}
+  m_Script: {fileID: 11500000, guid: a7ade9f1bef2242afbc05c21a58edf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hitsUntilBreaks: 1
@@ -193,7 +193,7 @@ MonoBehaviour:
     type: 3}
   glitchPrefab: {fileID: 9075157879152750591, guid: 0821faeff10bf4a37a00e76474a1ce3a,
     type: 3}
-  blackHolePrefab: {fileID: 6300567468910630055, guid: 6331c8bb5ecfc4461bd37a9229b811b5,
+  blackHolePrefab: {fileID: 1849791845757422321, guid: e52078ee56ea04a2589f8824ef250b0c,
     type: 3}
   coinPrefab: {fileID: 423313427928529527, guid: 762e5e807cb4844f5a09b2e85c83de49,
     type: 3}

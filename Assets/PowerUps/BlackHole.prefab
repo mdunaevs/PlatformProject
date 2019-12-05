@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6300567468910630050}
   - component: {fileID: 6300567468910630049}
   - component: {fileID: 6300567468910630048}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: BlackHole
   m_TagString: BlackHole
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6300567468910630055}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b276b54d3fd4e06b7dee130b099e73, type: 3}
+  m_Script: {fileID: 11500000, guid: 2314a66ef54034e1c9c95e78b66250f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6300567470061043735
