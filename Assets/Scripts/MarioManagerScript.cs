@@ -261,7 +261,7 @@ public class MarioManagerScript : MonoBehaviour
     }
 
     public void GoToLevelOne(){
-        SceneManager.LoadScene("Level 2");
+        SceneManager.LoadScene("Level 3");
         isLoaded = true;
     }
 }
