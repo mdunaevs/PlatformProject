@@ -89,6 +89,7 @@ public class LuckyBlockScript : MonoBehaviour
                           transform);
         coin.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         coin.transform.parent = null;
+        coin.GetComponent<Collider>().enabled = false;
 
         coin.GetComponent<Animator>().SetBool("hitBlock", true);
 

@@ -15,7 +15,7 @@ public class HeroScript : MonoBehaviour
     private SpriteRenderer sprite;
     private bool faceRight = true;
 
-
+    public GameObject coinPrefab;
 
 
     private Vector3 moveDirection = Vector3.zero;
@@ -155,6 +155,10 @@ public class HeroScript : MonoBehaviour
               Debug.Log("Should exit into pipe");
               Vector3 newPos = collision.gameObject.GetComponent<TeleportScript>().TeleportOut();
               MarioManagerScript.S.WarpPipeAction(newPos);
+          } else if(collision.gameObject.tag == "Coin"){
+              Destroy(collision.gameObject);
+              MarioManagerScript.S.IncrementCoins();
+              CoinAnimation();
           } else if(collision.gameObject.tag == "levelEnd"){
               MarioManagerScript.S.level += 1;
               if(MarioManagerScript.S.level == 2){
@@ -163,6 +167,35 @@ public class HeroScript : MonoBehaviour
 
           }
 
+      }
+
+      public void RemoveCoin(GameObject coin){
+          Debug.Log("Entering coroutine");
+
+          //yield WaitForSeconds(1.0f);
+          //coin.GetComponent<Animator>().SetBool("hitBlock", false);
+          //Destroy(this.gameObject)
+          Debug.Log("Exiting coroutine");
+          Destroy(coin.gameObject, 0.38f);
+
+      }
+
+      private void CoinAnimation(){
+          Debug.Log("Entered coin animation");
+          GameObject coin;
+          coin = Instantiate(coinPrefab,
+                            transform.position + new Vector3(2.0f, 1.0f, 2.0f),
+                            transform.rotation,
+                            transform);
+          coin.transform.localScale = new Vector3(1.7f, 1.0f, 1.0f);
+          coin.transform.parent = null;
+          coin.GetComponent<Collider>().enabled = false;
+
+          coin.GetComponent<Animator>().SetBool("hitBlock", true);
+
+          RemoveCoin(coin);
+          //Destroy(coin.gameObject);
+          //coin.gameObject.active = false;
       }
 
       public void BouncePlayer(){
