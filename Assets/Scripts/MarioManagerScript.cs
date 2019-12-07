@@ -76,6 +76,18 @@ public class MarioManagerScript : MonoBehaviour
               Start();
             }
             isLoaded = false;
+        }  else if(level == 4){
+            player = player;
+            if(isLoaded){
+              Start();
+            }
+            isLoaded = false;
+        }  else if(level == 5){
+            player = player;
+            if(isLoaded){
+              Start();
+            }
+            isLoaded = false;
         }
     }
 
@@ -108,7 +120,7 @@ public class MarioManagerScript : MonoBehaviour
             cam = GameObject.FindGameObjectWithTag("MainCamera");
         }
         // if(livesLeftMessage == null){
-        //     livesLeftMessage = GameObject.FindGameObjectWithTag("Display");
+        //     livesLeftMessage = GameObject.FindGameObjectWithTag("Display").;
         // }
         ResetPlayerPosition();
         ResetCameraPosition();
@@ -261,6 +273,16 @@ public class MarioManagerScript : MonoBehaviour
     }
 
     public void GoToLevelOne(){
+        SceneManager.LoadScene("Level 1");
+        isLoaded = true;
+    }
+
+    public void GoToLevelTwo(){
+        SceneManager.LoadScene("Level 2");
+        isLoaded = true;
+    }
+
+    public void GoToLevelThree(){
         SceneManager.LoadScene("Level 3");
         isLoaded = true;
     }
@@ -268,11 +290,14 @@ public class MarioManagerScript : MonoBehaviour
 
 /*
 
-Coin animation - done
-powerups - animations + abilities
-revive enemies / blocks
-lucky blocks - done
-Pipe functionality -
 Bowser player
-black hole animation of enemy getting sucked in
+reset blocks and enemies
+invisibility of arrow hit bug
+texture for blocks in new levels
+coins
+last level
+home screen / lose screen
+intro castle
+flagpole win
+
 */
