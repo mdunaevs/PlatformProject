@@ -23,6 +23,7 @@ TagManager:
   - Display
   - Arrow
   - BowserPlayer
+  - BowserEnemy
   layers:
   - Default
   - TransparentFX

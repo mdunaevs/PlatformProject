@@ -121,6 +121,9 @@ public class HeroScript : MonoBehaviour
           if(collision.gameObject.tag == "Plane"){
               MarioManagerScript.S.RegisterDeath();
               MarioManagerScript.S.Shrink();
+          } else if(collision.gameObject.tag == "BowserEnemy"){
+              MarioManagerScript.S.RegisterDeath();
+              MarioManagerScript.S.Shrink();
           } else if(collision.moveDirection == Vector3.up){
 
               if(collision.gameObject.tag == "Platform" && (moveDirection.y > 0.0f)){

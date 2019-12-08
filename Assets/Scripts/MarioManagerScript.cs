@@ -71,6 +71,7 @@ public class MarioManagerScript : MonoBehaviour
         DontDestroyOnLoad(this);
 
         audio = GetComponent<AudioSource>();
+        audio.Play();
 
         InitRound();
 
@@ -381,16 +382,16 @@ public class MarioManagerScript : MonoBehaviour
 
 /*
 P1
-invisibility of arrow hit bug
+invisibility of arrow hit bug - TA
 last level
-home screen / lose screen
+home screen / lose screen - TA
 
 P2
-intro castle
-flagpole win
 bowser boss
 dark one boss
-background music
+background music - TA
+black hole animation
+
 
 P3
 lava at bottom
