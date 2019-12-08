@@ -260,8 +260,8 @@ public class MarioManagerScript : MonoBehaviour
         amtLives -= 1;
 
         if(amtLives == 0){
-            Debug.Log("Lost the game!");
-            //GoToLoseScreen();
+            //Debug.Log("Lost the game!");
+            GoToLoseScreen();
         } else {
             DeathDelay();
         }
@@ -350,8 +350,9 @@ public class MarioManagerScript : MonoBehaviour
         Debug.Log(amtCoinsCollected);
     }
 
-    public void GoToWinScreen(){
-        SceneManager.LoadScene("LoseScreen");
+    public void GoToLoseScreen(){
+        SceneManager.LoadScene("Lose");
+        level = 1;
     }
 
     public void GoToLevelOne(){

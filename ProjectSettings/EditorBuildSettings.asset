@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: 31790d1c424a7466db0a9ec591de8089
+  - enabled: 1
     path: Assets/Scenes/Bowser_Castle.unity
     guid: 61b37ec68f3394b9f8f70bf068a8b67a
   - enabled: 1
@@ -17,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 3.unity
     guid: 8fc6f11b7098e45fa9a577d8f8f5784a
+  - enabled: 1
+    path: Assets/Scenes/Lose.unity
+    guid: 82ec965d7a5e64689abf97f5899b2206
   m_configObjects: {}
