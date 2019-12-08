@@ -71,7 +71,7 @@ public class EnemyScript : MonoBehaviour
               Destroy(this.gameObject);
         } else if(collision.gameObject.tag == "BlackHole"){
               Destroy(this.gameObject);
-        } else if(collision.gameObject.tag == "Player"){
+        } else if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "BowserPlayer"){
               //Debug.Log("Collisiotn Normal: " + collision.normal);
 
               if(collision.normal.y < -0.6f){

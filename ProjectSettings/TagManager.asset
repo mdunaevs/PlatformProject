@@ -22,6 +22,7 @@ TagManager:
   - levelEnd
   - Display
   - Arrow
+  - BowserPlayer
   layers:
   - Default
   - TransparentFX

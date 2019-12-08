@@ -53,6 +53,7 @@ public class MarioManagerScript : MonoBehaviour
     public GameObject enemiesPrefab4;
     public GameObject enemiesPrefab5;
 
+    public bool useBowser = true;
 
     public static MarioManagerScript S; // Singleton
 
@@ -194,7 +195,14 @@ public class MarioManagerScript : MonoBehaviour
 
     public void InitRound(){
         if(player == null){
-            player = GameObject.FindGameObjectWithTag("Player");
+            if(useBowser){
+                player = GameObject.FindGameObjectWithTag("BowserPlayer");
+                GameObject.FindGameObjectWithTag("Player").active = false;
+            } else {
+                player = GameObject.FindGameObjectWithTag("Player");
+                GameObject.FindGameObjectWithTag("BowserPlayer").active = false;
+            }
+
         }
         if(cam == null){
             cam = GameObject.FindGameObjectWithTag("MainCamera");
@@ -208,7 +216,7 @@ public class MarioManagerScript : MonoBehaviour
         ReinstantiateEnemies();
         deathBeingRegistered = false;
         hitsUntilDeath = 1;
-        player.GetComponent<HeroScript>().SetPlayerDead(false);
+        //player.GetComponent<HeroScript>().SetPlayerDead(false);
 
         gameState = GameState.getReady;
         livesLeftMessage.text = "" + amtLives;
@@ -374,7 +382,6 @@ public class MarioManagerScript : MonoBehaviour
 /*
 P1
 invisibility of arrow hit bug
-Bowser player
 last level
 home screen / lose screen
 
@@ -383,6 +390,7 @@ intro castle
 flagpole win
 bowser boss
 dark one boss
+background music
 
 P3
 lava at bottom

@@ -138,7 +138,7 @@ public class ArcherScript : MonoBehaviour
                Destroy(this.gameObject);
          } else if(collision.gameObject.tag == "BlackHole"){
                Destroy(this.gameObject);
-         } else if(collision.gameObject.tag == "Player"){
+         } else if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "BowserPlayer"){
                //Debug.Log("Collisiotn Normal: " + collision.normal);
                Debug.Log("Collided with player");
                if(collision.normal.y < -0.6f){

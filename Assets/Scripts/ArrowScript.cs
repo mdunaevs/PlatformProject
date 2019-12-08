@@ -19,7 +19,7 @@ public class ArrowScript : MonoBehaviour
     }
 
      void OnCollisionEnter(Collision collision){
-        if(collision.gameObject.tag == "Player"){
+        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "BowserPlayer"){
             Destroy(this.gameObject);
             MarioManagerScript.S.hitsUntilDeath -= 1;
             if(MarioManagerScript.S.hitsUntilDeath == 2){

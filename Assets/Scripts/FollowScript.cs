@@ -5,13 +5,18 @@ using UnityEngine;
 public class FollowScript : MonoBehaviour
 {
 
-    public GameObject playerObject;
+    private GameObject playerObject;
 
     private float xVel = 0.0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        if(MarioManagerScript.S.useBowser){
+            playerObject = GameObject.FindGameObjectWithTag("BowserPlayer");
+        } else {
+            playerObject = GameObject.FindGameObjectWithTag("Player");
+        }
 
     }
 
