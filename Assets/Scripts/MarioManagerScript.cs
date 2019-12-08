@@ -31,7 +31,6 @@ public class MarioManagerScript : MonoBehaviour
     public bool playerIsHittable = true;
 
     public GameObject blackHolePrefab;
-
     private GameObject bh;
 
     public bool insideSideRoom = false;
@@ -39,6 +38,21 @@ public class MarioManagerScript : MonoBehaviour
     public int level = 1;
 
     private bool isLoaded = false;
+
+    public GameObject platforms;
+    public GameObject platformsPrefab1;
+    public GameObject platformsPrefab2;
+    public GameObject platformsPrefab3;
+    public GameObject platformsPrefab4;
+    public GameObject platformsPrefab5;
+
+    public GameObject enemies;
+    public GameObject enemiesPrefab1;
+    public GameObject enemiesPrefab2;
+    public GameObject enemiesPrefab3;
+    public GameObject enemiesPrefab4;
+    public GameObject enemiesPrefab5;
+
 
     public static MarioManagerScript S; // Singleton
 
@@ -111,10 +125,76 @@ public class MarioManagerScript : MonoBehaviour
     gameState = GameState.playing;
   }
 
+
+    public void ReinstantiatePlatforms(){
+        if(platforms != null){
+            Debug.Log("deleting platforms");
+            Destroy(platforms.gameObject);
+        }
+        if(level == 1){
+            platforms = Instantiate(platformsPrefab1,
+                                    transform.position + new Vector3(0.0f, 2.75f, 0.0f),
+                                    transform.rotation,
+                                    transform);
+        } else if (level == 2){
+            platforms = Instantiate(platformsPrefab2,
+                                    transform.position + new Vector3(0.0f, 2.75f, 0.0f),
+                                    transform.rotation,
+                                    transform);
+        } else if (level == 3){
+            platforms = Instantiate(platformsPrefab3,
+                                    transform.position + new Vector3(0.0f, 2.75f, 0.0f),
+                                    transform.rotation,
+                                    transform);
+        } else if (level == 4){
+            platforms = Instantiate(platformsPrefab4,
+                                    transform.position + new Vector3(0.0f, 2.75f, 0.0f),
+                                    transform.rotation,
+                                    transform);
+        } else if (level == 5){
+            platforms = Instantiate(platformsPrefab5,
+                                    transform.position + new Vector3(0.0f, 2.75f, 0.0f),
+                                    transform.rotation,
+                                    transform);
+        }
+    }
+
+    public void ReinstantiateEnemies(){
+        if(enemies != null){
+            Debug.Log("deleting enemies");
+            Destroy(enemies.gameObject);
+        }
+        if(level == 1){
+            enemies = Instantiate(enemiesPrefab1,
+                                    transform.position + new Vector3(0.0f, 2.75f, 0.0f),
+                                    transform.rotation,
+                                    transform);
+        } else if (level == 2){
+            enemies = Instantiate(enemiesPrefab2,
+                                    transform.position + new Vector3(0.0f, 2.75f, 0.0f),
+                                    transform.rotation,
+                                    transform);
+        } else if (level == 3){
+            enemies = Instantiate(enemiesPrefab3,
+                                    transform.position + new Vector3(0.0f, 2.75f, 0.0f),
+                                    transform.rotation,
+                                    transform);
+        } else if (level == 4){
+            enemies = Instantiate(enemiesPrefab4,
+                                    transform.position + new Vector3(0.0f, 2.75f, 0.0f),
+                                    transform.rotation,
+                                    transform);
+        } else if (level == 5){
+            enemies = Instantiate(enemiesPrefab5,
+                                    transform.position + new Vector3(0.0f, 2.75f, 0.0f),
+                                    transform.rotation,
+                                    transform);
+        }
+    }
+
     public void InitRound(){
         if(player == null){
             player = GameObject.FindGameObjectWithTag("Player");
-
         }
         if(cam == null){
             cam = GameObject.FindGameObjectWithTag("MainCamera");
@@ -124,6 +204,8 @@ public class MarioManagerScript : MonoBehaviour
         // }
         ResetPlayerPosition();
         ResetCameraPosition();
+        ReinstantiatePlatforms();
+        ReinstantiateEnemies();
         deathBeingRegistered = false;
         hitsUntilDeath = 1;
         player.GetComponent<HeroScript>().SetPlayerDead(false);
@@ -289,15 +371,18 @@ public class MarioManagerScript : MonoBehaviour
 }
 
 /*
-
-Bowser player
-reset blocks and enemies
+P1
 invisibility of arrow hit bug
-texture for blocks in new levels
-coins
+Bowser player
 last level
 home screen / lose screen
+
+P2
 intro castle
 flagpole win
+bowser boss
+dark one boss
 
+P3
+lava at bottom
 */
