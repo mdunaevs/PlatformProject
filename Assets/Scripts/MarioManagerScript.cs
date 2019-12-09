@@ -379,7 +379,6 @@ public class MarioManagerScript : MonoBehaviour
 
 /*
 P1
-dark one boss
 
 P2
 black hole animation
@@ -388,5 +387,3 @@ animations
 P3
 lava at bottom
 */
-
-// Dark one: https://www.google.com/search?q=dark+one+sprite&safe=strict&sxsrf=ACYBGNSaKO49w-h7dnbd-aBbefCu1uAJFQ:1575869181558&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi9yZ2W6qfmAhWk1FkKHTZEBjEQ_AUoAXoECAwQAw&biw=1440&bih=742#imgrc=JqYoPGJ2nPzxEM:
