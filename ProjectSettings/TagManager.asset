@@ -26,6 +26,7 @@ TagManager:
   - BowserEnemy
   - DropButton
   - DropPlatform
+  - DarkOneDefeat
   layers:
   - Default
   - TransparentFX

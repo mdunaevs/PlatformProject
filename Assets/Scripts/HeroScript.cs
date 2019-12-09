@@ -174,6 +174,8 @@ public class HeroScript : MonoBehaviour
                   MarioManagerScript.S.GoToLevelTwo();
               } else if(MarioManagerScript.S.level == 4){
                   MarioManagerScript.S.GoToLevelThree();
+              } else if(MarioManagerScript.S.level == 5){
+                  MarioManagerScript.S.GoToLoseScreen();
               }
 
           }

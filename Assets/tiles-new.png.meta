@@ -63,6 +63,8 @@ TextureImporter:
     21300116: tb-24x3
     21300118: tb-1x3
     21300120: tiles-new_2
+    21300122: tb-3x10
+    21300124: tb-2x6
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -1364,13 +1366,53 @@ TextureImporter:
         width: 16
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 25f26dfe7420e408891e708fe3546bb7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tb-3x10
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 217
+        width: 144
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc80a16cc1433441ba84a3bde8b3698e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tb-2x6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 169
+        width: 32
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1381cb4e69b4a481b9ff34625a9d1344
       vertices: []
       indices: 
       edges: []

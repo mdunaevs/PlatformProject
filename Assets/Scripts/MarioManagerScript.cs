@@ -44,14 +44,12 @@ public class MarioManagerScript : MonoBehaviour
     public GameObject platformsPrefab2;
     public GameObject platformsPrefab3;
     public GameObject platformsPrefab4;
-    public GameObject platformsPrefab5;
 
     public GameObject enemies;
     public GameObject enemiesPrefab1;
     public GameObject enemiesPrefab2;
     public GameObject enemiesPrefab3;
     public GameObject enemiesPrefab4;
-    public GameObject enemiesPrefab5;
 
     public bool useBowser = true;
 
@@ -97,12 +95,6 @@ public class MarioManagerScript : MonoBehaviour
             }
             isLoaded = false;
         }  else if(level == 4){
-            player = player;
-            if(isLoaded){
-              Start();
-            }
-            isLoaded = false;
-        }  else if(level == 5){
             player = player;
             if(isLoaded){
               Start();
@@ -157,11 +149,6 @@ public class MarioManagerScript : MonoBehaviour
                                     transform.position + new Vector3(0.0f, 2.75f, 0.0f),
                                     transform.rotation,
                                     transform);
-        } else if (level == 5){
-            platforms = Instantiate(platformsPrefab5,
-                                    transform.position + new Vector3(0.0f, 2.75f, 0.0f),
-                                    transform.rotation,
-                                    transform);
         }
     }
 
@@ -187,11 +174,6 @@ public class MarioManagerScript : MonoBehaviour
                                     transform);
         } else if (level == 4){
             enemies = Instantiate(enemiesPrefab4,
-                                    transform.position + new Vector3(0.0f, 2.75f, 0.0f),
-                                    transform.rotation,
-                                    transform);
-        } else if (level == 5){
-            enemies = Instantiate(enemiesPrefab5,
                                     transform.position + new Vector3(0.0f, 2.75f, 0.0f),
                                     transform.rotation,
                                     transform);
@@ -388,6 +370,11 @@ public class MarioManagerScript : MonoBehaviour
     public void DefeatBowser(){
         GameObject.FindGameObjectWithTag("DropPlatform").active = false;
     }
+
+    public void DefeatDarkOne(){
+        Debug.Log("Removing wall");
+        GameObject.FindGameObjectWithTag("DarkOneDefeat").active = false;
+    }
 }
 
 /*
@@ -401,3 +388,5 @@ animations
 P3
 lava at bottom
 */
+
+// Dark one: https://www.google.com/search?q=dark+one+sprite&safe=strict&sxsrf=ACYBGNSaKO49w-h7dnbd-aBbefCu1uAJFQ:1575869181558&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi9yZ2W6qfmAhWk1FkKHTZEBjEQ_AUoAXoECAwQAw&biw=1440&bih=742#imgrc=JqYoPGJ2nPzxEM:
