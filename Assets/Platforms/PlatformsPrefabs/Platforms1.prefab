@@ -1496,6 +1496,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StandardPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 2554270254820895893, guid: 99ec9cd10ae1441389fbd4016ef39a2c,
+        type: 3}
+      propertyPath: m_TagString
+      value: DropPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 2554270254820895977, guid: 99ec9cd10ae1441389fbd4016ef39a2c,
         type: 3}
       propertyPath: m_LocalPosition.x

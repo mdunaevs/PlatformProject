@@ -24,6 +24,8 @@ TagManager:
   - Arrow
   - BowserPlayer
   - BowserEnemy
+  - DropButton
+  - DropPlatform
   layers:
   - Default
   - TransparentFX

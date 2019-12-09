@@ -384,6 +384,10 @@ public class MarioManagerScript : MonoBehaviour
         SceneManager.LoadScene("Level 3");
         isLoaded = true;
     }
+
+    public void DefeatBowser(){
+        GameObject.FindGameObjectWithTag("DropPlatform").active = false;
+    }
 }
 
 /*
@@ -391,8 +395,8 @@ P1
 dark one boss
 
 P2
-
 black hole animation
+animations
 
 P3
 lava at bottom

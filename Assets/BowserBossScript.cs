@@ -125,6 +125,8 @@ public class BowserBossScript : MonoBehaviour
          //Debug.Log("Two characters collided");
          if(collision.gameObject.tag == "BackWall"){
                Destroy(this.gameObject);
+         } else if(collision.gameObject.tag == "Plane"){
+               Destroy(this.gameObject);
          } else if(collision.gameObject.tag == "BlackHole"){
                Destroy(this.gameObject);
          } else if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "BowserPlayer"){
