@@ -51,7 +51,7 @@ public class MarioManagerScript : MonoBehaviour
     public GameObject enemiesPrefab3;
     public GameObject enemiesPrefab4;
 
-    public bool useBowser = true;
+    public bool useBowser;
 
     public static MarioManagerScript S; // Singleton
 
@@ -61,6 +61,7 @@ public class MarioManagerScript : MonoBehaviour
             Destroy(this.gameObject);
         }
         S = this;
+        useBowser = GameObject.FindGameObjectWithTag("TitleScreenObject").GetComponent<HomeScript>().bowser;
     }
 
     // Start is called before the first frame update

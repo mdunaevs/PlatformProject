@@ -7,8 +7,11 @@ using TMPro;
 public class HomeScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public bool bowser = false;
+
     void Start()
     {
+        DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
@@ -17,7 +20,13 @@ public class HomeScript : MonoBehaviour
 
     }
 
-    public void GoToBowserCastle(){
+    public void GoToBowserCastleMario(){
         SceneManager.LoadScene("Bowser_Castle");
+        bowser = false;
+    }
+
+    public void GoToBowserCastleBowser(){
+        SceneManager.LoadScene("Bowser_Castle");
+        bowser = true;
     }
 }
