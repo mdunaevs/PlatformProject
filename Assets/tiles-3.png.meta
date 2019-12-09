@@ -55,6 +55,9 @@ TextureImporter:
     21300100: tiles-10x3
     21300102: LuckyBlockSprite
     21300104: LuckyBlockHit
+    21300106: tg-3x2
+    21300108: tg-1x2
+    21300110: tg-3x4
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -1203,6 +1206,66 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f944878b565074758aaf15831ac52fec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tg-3x2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 201
+        width: 46
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 810b80a16bbc74caeb7eb0b41d339f2a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tg-1x2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 201
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dc43038902bc49a0967a2714e99bfe5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tg-3x4
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 59
+        width: 44
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d751003bc8dc4dd1b4ba2fe64adb9cf
       vertices: []
       indices: 
       edges: []

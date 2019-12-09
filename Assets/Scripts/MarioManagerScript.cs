@@ -71,10 +71,14 @@ public class MarioManagerScript : MonoBehaviour
         DontDestroyOnLoad(this);
 
         audio = GetComponent<AudioSource>();
-        audio.Play();
+
 
         InitRound();
+        PlaySong();
+    }
 
+    public void PlaySong(){
+        audio.Play();
     }
 
     // Update is called once per frame
@@ -265,7 +269,7 @@ public class MarioManagerScript : MonoBehaviour
         if(deathBeingRegistered) return;
         if(bh != null) Destroy(bh.gameObject);
         canGlitch = false;
-        MakeDeathSound();
+        //MakeDeathSound();
         amtLives -= 1;
 
         if(amtLives == 0){
@@ -384,16 +388,11 @@ public class MarioManagerScript : MonoBehaviour
 
 /*
 P1
-invisibility of arrow hit bug - TA
-last level
-home screen / lose screen - TA
+dark one boss
 
 P2
-bowser boss
-dark one boss
-background music - TA
-black hole animation
 
+black hole animation
 
 P3
 lava at bottom

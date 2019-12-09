@@ -19,7 +19,7 @@ public class LoseScreenScript : MonoBehaviour
 
     }
 
-    public void GoToBowserCastle(){
+    public void GoToHome(){
         SceneManager.LoadScene("Home");
     }
 }
