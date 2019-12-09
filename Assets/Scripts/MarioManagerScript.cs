@@ -287,10 +287,12 @@ public class MarioManagerScript : MonoBehaviour
       for(int i = 0; i < 6; i++){
           player.transform.GetChild(0).gameObject.active = false;
           yield return new WaitForSeconds(0.125f);
+          Debug.Log("Turning sprite off");
           player.transform.GetChild(0).gameObject.active = true;
           yield return new WaitForSeconds(0.125f);
       }
       //player.transform.GetChild(0).gameObject.active = true;
+      Debug.Log("exiting hit delay");
       playerIsHittable = true;
     }
 

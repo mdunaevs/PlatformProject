@@ -20,7 +20,8 @@ public class ArrowScript : MonoBehaviour
 
      void OnCollisionEnter(Collision collision){
         if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "BowserPlayer"){
-            Destroy(this.gameObject);
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+            gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
             MarioManagerScript.S.hitsUntilDeath -= 1;
             if(MarioManagerScript.S.hitsUntilDeath == 2){
                 MarioManagerScript.S.ShrinkGlitch();
@@ -33,6 +34,7 @@ public class ArrowScript : MonoBehaviour
                 MarioManagerScript.S.RegisterDeath();
                 MarioManagerScript.S.deathBeingRegistered = true;
             }
+            Destroy(this.gameObject, 10.0f);
         } else {
             Destroy(this.gameObject);
         }

@@ -18,8 +18,11 @@ public class FireballScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision){
        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "BowserPlayer"){
-           Destroy(this.gameObject);
+           //if(!MarioManagerScript.S.playerIsHittable) return;
            MarioManagerScript.S.hitsUntilDeath -= 1;
+           gameObject.GetComponent<BoxCollider>().enabled = false;
+           gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
            if(MarioManagerScript.S.hitsUntilDeath == 2){
                MarioManagerScript.S.ShrinkGlitch();
                StartCoroutine(MarioManagerScript.S.HitDelay());
@@ -31,6 +34,8 @@ public class FireballScript : MonoBehaviour
                MarioManagerScript.S.RegisterDeath();
                MarioManagerScript.S.deathBeingRegistered = true;
            }
+           Destroy(this.gameObject, 10.0f);
+
        } else {
            Destroy(this.gameObject);
        }

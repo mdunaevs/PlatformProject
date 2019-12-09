@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3204974154299230253}
   - component: {fileID: 3204974154299230252}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Fireball_sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

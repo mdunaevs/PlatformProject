@@ -65,7 +65,7 @@ public class BowserBossScript : MonoBehaviour
     public void ShootFireball(){
         GameObject fireball;
         fireball = Instantiate(fireballPrefab,
-                               transform.position + new Vector3(0.0f, Random.Range(-1.0f, 1.0f), 0.0f),
+                               transform.position + new Vector3(0.0f, Random.Range(-1.0f, 2.0f), 0.0f),
                                transform.rotation,
                                transform);
 
@@ -108,12 +108,12 @@ public class BowserBossScript : MonoBehaviour
             }
 
             animator.SetBool("shoot", true);
-            yield return new WaitForSeconds(0.66f);
+            yield return new WaitForSeconds(Random.Range(0.75f, 0.95f));
             ShootFireball();
             // Start the shoot animation
-            yield return new WaitForSeconds(0.66f);
+            yield return new WaitForSeconds(Random.Range(0.75f, 0.95f));
             animator.SetBool("shoot", false);
-            yield return new WaitForSeconds(0.66f);
+            yield return new WaitForSeconds(Random.Range(0.75f, 0.95f));
             //print("finished yielding");
         }
     }
